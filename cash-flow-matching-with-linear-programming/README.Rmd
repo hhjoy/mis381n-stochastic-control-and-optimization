@@ -6,9 +6,8 @@ date: "February 10, 2016"
 
 
 ##**PROBLEM 1**
-####Formulate the dedicated portfolio construction problem as a linear program  
 
-#### Setting up parameters for example portfolio  
+#####Formulate the dedicated portfolio construction problem as a linear program  
 
 **Decision variables:** (x1), ... , (x10) amount of each bond  
                     (z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the                                         last period)  
@@ -23,7 +22,7 @@ date: "February 10, 2016"
 constraints = years (8)  
 variables = bond terms (10), excess cash (7)  
 
-####Setting up parameters for example portfolio
+######Setting up parameters for example portfolio
 ```{r}
 library(lpSolveAPI)
 
@@ -33,7 +32,7 @@ m = c(1,2,2,3,4,5,5,6,7,8) #maturity
 l = c(12000,18000,20000,20000,16000,15000,12000,10000) #liabilities (RHS)
 ```
 
-####Setting up code for solving optimization
+######Setting up code for solving optimization
 ```{r}
 num.constraints = length(l) #set num of constraints to length of liabilities
 num.bonds = length(c) #set num of bonds to length of coupons
@@ -66,23 +65,25 @@ set.rhs(my.lp, l)
 
   
 ##**PROBLEM 2**
-####Solve the example portfolio case in R using lpSolveAPI() 
+
+#####Solve the example portfolio case in R using lpSolveAPI() 
   
-####Solving
+######Solving
 ```{r}
 solve(my.lp)
 ```
   
-####Getting optimal variables
+######Getting optimal variables
 ```{r}
 get.variables(my.lp)
 ```
 
     
 ##**PROBLEM 3**
-#### Write a function in R that can construct a portfolio for any set of liabilities and bonds  
 
-####Function takes in bond portfolio parameters and return a .lp object
+##### Write a function in R that can construct a portfolio for any set of liabilities and bonds  
+
+######Function takes in bond portfolio parameters and return a .lp object
 ```{r}
 dedicate_g1 = function (p,c,m,l) {
   num.constraints = length(l) #set num of constraints to length of liabilities
@@ -116,7 +117,7 @@ dedicate_g1 = function (p,c,m,l) {
 }
 ```
 
-####Testing function on example portfolio
+######Testing function on example portfolio
 ```{r}
 old_port = dedicate_g1(p,c,m,l)
 solve(old_port)
@@ -134,30 +135,31 @@ get.objective(old_port)
 
   
 ##**PROBLEM 4**
-####Construct a dedicated portfolio using this liability stream and current bond information  
+
+#####Construct a dedicated portfolio using this liability stream and current bond information  
 
 ```{r}
 bonds = read.csv('bonds.csv', header=TRUE) # we creted a csv document containing all of the important bond fields from the provided website
 ```
 
-####Creating a column of date objects
+######Creating a column of date objects
 ```{r}
 bonds$Matur_Date = as.Date(as.character(bonds$Maturity),format="%m/%d/%Y")
 ```
 
-####Remove all bonds maturing after last liability date
+######Remove all bonds maturing after last liability date
 ```{r}
 bonds = bonds[bonds$Matur_Date <= as.Date('12/31/2021',format="%m/%d/%Y"),]
 ```
 
-####Creating a list of liability dates
+######Creating a list of liability dates
 ```{r}
 liability_dates = c('6/30/2016','12/31/2016','6/30/2017','12/31/2017','6/30/2018','12/31/2018','6/30/2019',
                     '12/31/2019','6/30/2020','12/31/2020','6/30/2021','12/31/2021')
 liability_dates = as.Date(liability_dates,format="%m/%d/%Y")
 ```
 
-####Assigning maturity periods using the date lists
+######Assigning maturity periods using the date lists
 Goal is to have list of maturity due periods (numbering 1-12), similar to format given in example portfolio
 ```{r}
 m = 0
@@ -171,7 +173,7 @@ for (i in 1:length(bonds$Matur_Date)) {
 }
 ```
 
-####Using function to optimize new portfolio
+######Using function to optimize new portfolio
 ```{r}
 p = bonds$Asked #price
 c = bonds$Coupon #coupon
@@ -193,7 +195,7 @@ get.objective(new_port)
 #optimal portfolio = $74,042,228
 ```
 
-####Plotting bond and liability duals versus libability period (analagous to date)
+######Plotting bond and liability duals versus libability period (analagous to date)
 ```{r}
 
 duals = get.dual.solution(new_port)
