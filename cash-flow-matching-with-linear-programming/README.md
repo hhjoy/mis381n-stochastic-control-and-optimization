@@ -80,6 +80,7 @@ solve(my.lp)
 ```
   
 ######Get optimal variables
+The matrix below tells us how much and of each bond the portfolio should consist of.
 
 ```r
 get.variables(my.lp)
@@ -92,7 +93,7 @@ get.variables(my.lp)
 ```
 
     
-Using the optimization code above, we can write a function that can construct a portfolio for any set of liabilities and bonds.
+Using the optimization code above, we will now write a function that can construct a portfolio for any set of liabilities and bonds.
 
 ######Function that takes in bond portfolio parameters and returns a .lp object
 
