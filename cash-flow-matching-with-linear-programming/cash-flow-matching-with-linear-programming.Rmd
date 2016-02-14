@@ -15,6 +15,8 @@ R program to construct a dedicated portfolio.
 
 Given the liability schedule and bonds shown below, we will now formulate the problem as a linear program and solve it using lpSolveAPI.
 
+![](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/blob/master/cash-flow-matching-with-linear-programming/liability_schedule_and_bonds.PNG?raw=true)
+
 #####Formulate the dedicated portfolio construction problem as a linear program  
 **Decision variables:** (x1), ... , (x10) amount of each bond  
                     (z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the                                         last period)  
@@ -135,6 +137,8 @@ get.objective(old_port)
 
   
 Next, we will construct a dedicated portfolio using the liability stream below and current bond information from [The Wall Street Journal (WSJ) Online U.S. Treasury Quotes](http://online.wsj.com/mdc/public/page/2_3020-treasury.html). We will have to account for the fact that coupons for these bonds are paid semi-annually.
+
+![](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/blob/master/cash-flow-matching-with-linear-programming/liability_schedule_and_bonds.PNG?raw=true)
 
 #####Read in file with current bond information  
 ```{r}
