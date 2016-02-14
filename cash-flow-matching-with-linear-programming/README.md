@@ -17,8 +17,8 @@ February 10, 2016
  year 1: 12000 = 100(x1) + 5(x1) + 3.5(x2) + 5(x3) + 3.5(x4) + 4(x5) + 9(x6) + 6(x7) + 8(x8) + 9(x9) + 7(x10) - (z1)  
  year 2: ...  
 
-constraints = years (8)  
-variables = bond terms (10), excess cash (7)  
+**Constraints** = years (8)  
+**Variables** = bond terms (10), excess cash (7)  
 
 ######Setting up parameters for example portfolio
 
