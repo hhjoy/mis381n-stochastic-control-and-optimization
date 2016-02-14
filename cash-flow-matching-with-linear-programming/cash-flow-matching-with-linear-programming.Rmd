@@ -7,8 +7,8 @@ output:
 
 Dedication or cash-flow matching is a technique used to fund known liabilities in
 the future. The intent is to form a portfolio of assets whose cash inflows will exactly
-match cash outflows of the liabilities. The liabilities will be paid off, as they become
-due, without the need to sell or buy assets in the future. Dedicated portfolios usually only
+match cash outflows of the liabilities. The liabilities will be paid off as they become
+due without the need to sell or buy assets in the future. Dedicated portfolios usually only
 consist of risk-free non-callable bonds since future cash inflows need to be known
 when the portfolio is constructed. In this project, we will be writing and using an 
 R program to construct a dedicated portfolio.
@@ -140,7 +140,7 @@ Next, we will construct a dedicated portfolio using the liability stream below a
 
 ![](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/blob/master/cash-flow-matching-with-linear-programming/liability_schedule_and_bonds.PNG?raw=true)
 
-#####Read in file with current bond information  
+######Read in file with current bond information  
 ```{r}
 bonds = read.csv('bonds.csv', header=TRUE) # csv containing maturity date, coupon, and ask price provided on the website
 ```
