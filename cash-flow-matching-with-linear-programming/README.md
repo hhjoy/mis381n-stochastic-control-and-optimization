@@ -304,9 +304,6 @@ liab_duals = dual_df[1:12,]
 bond_duals = dual_df[13:236,]
 ```
 
-The graph below shows the shadow prices for each of the 224 bonds by maturity period. The shadow price represents the increase in the objective value (cost of the portfolio) from a purchase of an additional bond. We see a positive relationship between maturity period and the duals, such that buying additional bonds with later maturity dates has a greater impact on the total portfolio cost than buying bonds with shorter term maturities.
-
-This makes sense, because the further into the future a bond matures, the more coupons it will generate and the more expensive it is. For example, bond #1 has a maturity of 2/15/2016 and a shadow price of 8.05. This means buying an additional unit of bond 1 would increase the objective value by 8.05.  Buying an additional bond that matures in a later period would increase the objective value by a greater amount.
 
 ```r
 plot(m, bond_duals$sensitivity.duals, main="Bond Duals by Maturity Period")
@@ -314,10 +311,14 @@ plot(m, bond_duals$sensitivity.duals, main="Bond Duals by Maturity Period")
 
 ![](README_files/figure-html/unnamed-chunk-18-1.png)
 
-Looking at liability duals by maturity shows a negative linear relationship. The first liability has a shadow price of 0.92, which means that an increase in the first liability by $1 requires a $0.92 increase in the objective value, or cost of the portfolio. Shadow prices fall as maturity dates rise because there is more time to accumulate return to cover the liability.
+The graph above shows the shadow prices for each of the 224 bonds by maturity period. The shadow price represents the increase in the objective value (cost of the portfolio) from a purchase of an additional bond. We see a positive relationship between maturity period and the duals, such that buying additional bonds with later maturity dates has a greater impact on the total portfolio cost than buying bonds with shorter term maturities.
+
+This makes sense, because the further into the future a bond matures, the more coupons it will generate and the more expensive it is. For example, bond #1 has a maturity of 2/15/2016 and a shadow price of 8.05. This means buying an additional unit of bond 1 would increase the objective value by 8.05.  Buying an additional bond that matures in a later period would increase the objective value by a greater amount.
 
 ```r
 plot(c(1:12), liab_duals$sensitivity.duals, main="Liability Duals by Maturity Period")
 ```
 
 ![](README_files/figure-html/unnamed-chunk-19-1.png)
+
+Looking at liability duals by maturity shows a negative linear relationship. The first liability has a shadow price of 0.92, which means that an increase in the first liability by $1 requires a $0.92 increase in the objective value, or cost of the portfolio. Shadow prices fall as maturity dates rise because there is more time to accumulate return to cover the liability.
