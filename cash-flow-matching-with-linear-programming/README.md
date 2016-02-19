@@ -230,7 +230,7 @@ solve(new_port)
 ## [1] 0
 ```
 
-The matrix below specifies how much and of each bond the portfolio should consist of. The last 11 variables are the z variables which represent excess cash carried over each year. They indicate that approximately $4.7M should be carried over from period 10 to 11.
+The matrix below specifies how much of each bond the portfolio should consist of. The last 11 variables are the z variables which represent excess cash carried over each year. They indicate that approximately $4.7M should be carried over from period 10 to 11.
 
 ```r
 get.variables(new_port)
