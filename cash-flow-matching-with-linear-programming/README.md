@@ -80,7 +80,7 @@ solve(my.lp)
 ```
   
 ######Get optimal variables
-The matrix below tells us how much and of each bond the portfolio should consist of.
+The matrix below tells us how much of each bond the portfolio should consist of.
 
 ```r
 get.variables(my.lp)
