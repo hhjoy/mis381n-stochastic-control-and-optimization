@@ -1,9 +1,9 @@
 # Homework 1
-![](hw1_header.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_header.PNG)
   
-![](hw1_q1.1.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q1.1.PNG)
   
-![](hw1_a1.1.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a1.1.PNG)
 
 ```r
 # verifying in R
@@ -18,9 +18,9 @@ solve(a, b)
 ## [2,]    0
 ```
   
-![](hw1_q1.2.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q1.2.PNG)
   
-![](hw1_a1.2.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a1.2.PNG)
 
 ```r
 # verifying in R
@@ -35,7 +35,7 @@ solve(a, b)
 ## [2,]    0
 ```
   
-![](hw1_q2.1.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q2.1.PNG)
 
 ```r
 # solving in R
@@ -51,7 +51,7 @@ solve(a, b)
 ## [3,]  1.5
 ```
   
-![](hw1_q2.2.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q2.2.PNG)
 
 ```r
 # solving in R
@@ -67,10 +67,10 @@ solve(a, b)
 ## [3,]   -1
 ```
   
-![](hw1_q3.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q3.PNG)
   
-![](hw1_a3.1.png)
-![](hw1_a3.2.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a3.1.PNG)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a3.2.PNG)
 
 ```r
 # solving in R
@@ -87,10 +87,10 @@ solve(a, b)
 ## [4,] 79.16667
 ```
   
-![](hw1_q4.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q4.PNG)
   
-![](hw1_a4.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a4.PNG)
   
-![](hw1_q5.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_q5.PNG)
   
-![](hw1_a5.png)
+![](https://raw.githubusercontent.com/juliaawu/mis381n-stochastic-control-and-optimization/master/hw1/hw1_a5.PNG)
