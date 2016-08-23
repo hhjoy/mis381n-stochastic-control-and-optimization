@@ -1,5 +1,5 @@
 #Stochastic Control & Optimization
-MIS381N is a course on stochastic control & optimization for the Master's in Business Analytics program at UT Austin. There were 7 homeworks and 6 projects for the course.
+MIS381N is a course on stochastic control & optimization for the Master's in Business Analytics program at UT Austin. There were 7 homework assignments and 6 projects for the course.
   
 Homework:
 * [Homework 1](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw1)
