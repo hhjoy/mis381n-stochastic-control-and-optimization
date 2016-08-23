@@ -49,7 +49,7 @@ s2$objval
 s1$objval - s2$objval
 ```
   
-![](hw2_q2a.png)
+![](hw2_q2a.PNG)
   
 He should plant 200 acres of wheat and 200 acres of corn, which will yield $1M in profit.  
   
@@ -59,7 +59,7 @@ Constraints:
 3w + 2c <= 1000  
 2w + 4c <= 1200  
 w + c <= 450  
-w, c >= 0
+w, c >= 0  
 ![](hw2_a2a.png)  
 ![](hw2_q2b.PNG)
 ```{r}
