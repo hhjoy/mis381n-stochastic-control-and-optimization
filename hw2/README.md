@@ -8,7 +8,7 @@ Max should eat 30 tortes and 0 pies to get 120 points.
 Choose: t, p  
 Objective: max 4t + 5p  
 Constraint: 2t + 3p <= 60
-![](hw2_a1.1.PNG)
+![](hw2_a1.1.png)
 
 ```r
 # verifying in R
@@ -43,7 +43,7 @@ Objective: max 4t + 5p
 Constraints:  
 2t + 3p <= 60  
 -t + p >= 0  
-![](hw2_a1.2.PNG)
+![](hw2_a1.2.png)
 
 ```r
 # verifying in R
@@ -74,7 +74,7 @@ s1$objval - s2$objval
 ## [1] 12
 ```
   
-![](hw2_q2a.PNG)
+![](hw2_q2a.png)
   
 He should plant 200 acres of wheat and 200 acres of corn, which will yield $1M in profit.  
   
@@ -85,7 +85,7 @@ Constraints:
 2w + 4c <= 1200  
 w + c <= 450  
 w, c >= 0
-![](hw2_a2a.PNG)
+![](hw2_a2a.png)
 ![](hw2_q2b.PNG)
 
 ```r
