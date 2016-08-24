@@ -4,7 +4,7 @@ MIS381N is a course on stochastic control & optimization for the Master's in Bus
 Homework:
 * [Homework 1](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw1)
 * [Homework 2](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw2)
-* Homework 3
+* [Homework 3](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw3)
 * Homework 4
 * Homework 5
 * Homework 6

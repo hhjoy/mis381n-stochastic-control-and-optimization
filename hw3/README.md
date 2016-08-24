@@ -4,7 +4,7 @@
   
 The solution is (2, 2) which gives you 6.
   
-![](hw3_a1.1.PNG)
+![](hw3_a1.1.png)
 ![](hw3_q1.2.PNG)
 
 ```r
@@ -344,7 +344,7 @@ s$objval
 ![](hw3_q3.1c.PNG)
 ![](hw3_q3.1d.PNG)
   
-![](hw3_a3.1.PNG)  
+![](hw3_a3.1.png)  
 Sum of the x's >= 1.
   
 ![](hw3_q3.2.PNG)
@@ -396,7 +396,7 @@ s$objval
 ![](hw3_q4.1a.PNG)
 ![](hw3_q4.1b.PNG)
   
-![](hw3_a4.1.PNG)
+![](hw3_a4.1.png)
 ![](hw3_q4.2.PNG)
   
 The optimal solution is:  
@@ -440,7 +440,7 @@ s$objval
 ![](hw3_q5.1a.PNG)
 ![](hw3_q5.1b.PNG)
   
-![](hw3_a5.1.PNG)
+![](hw3_a5.1.png)
 ![](hw3_q5.2.PNG)
   
 - 1 person will work Sun-Thu
