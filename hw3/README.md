@@ -11,7 +11,7 @@ The solution is (2, 2) which gives you 6.
 library(lpSolve)
 
 # verifying in R
-# Original
+# original
 c <- c(-1, 4)
 A <- matrix(c(-10, 5, 1, 20, 10, 0), 3, 2)
 dir <- rep("<=", 3)
@@ -300,11 +300,11 @@ s$objval
 ```
 ## [1] 6
 ```
-
+  
 ![](hw3_q1.2.PNG)
   
 There are 8 branches and 6 feasible solutions. The difference is 2 because there are 2 infeasible branches.
-
+  
 ![](hw3_q2.PNG)
   
 The optimal investment strategy is a factory in Austin, a factory in Dallas, and a warehouse in Dallas.
@@ -345,7 +345,7 @@ s$objval
 ![](hw3_q3.1d.PNG)
   
 ![](hw3_a3.1.png)  
-Sum of the x's >= 1.
+sum of the x's >= 1.
   
 ![](hw3_q3.2.PNG)
   
