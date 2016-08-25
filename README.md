@@ -5,7 +5,7 @@ Homework:
 * [Homework 1](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw1)
 * [Homework 2](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw2)
 * [Homework 3](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw3)
-* Homework 4
+* [Homework 4](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw4)
 * Homework 5
 * Homework 6
 * Homework 7
