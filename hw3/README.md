@@ -303,7 +303,7 @@ s$objval
 ## [1] 6
 ```
   
-![](hw3_q1.2.PNG)
+![](hw3_q1.3.PNG)
   
 There are 8 branches and 6 feasible solutions. The difference is 2 because there are 2 infeasible branches.
   
