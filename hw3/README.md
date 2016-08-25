@@ -1,5 +1,7 @@
 # Homework 3
-
+![](hw3_header1.PNG)
+![](hw3_header2.PNG)
+  
 ![](hw3_q1.1.PNG)
   
 The solution is (2, 2) which gives you 6.
