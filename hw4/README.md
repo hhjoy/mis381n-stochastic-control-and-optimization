@@ -174,8 +174,8 @@ Choose x1, x3, x4, x6, x12
 Min sum(xi2 * i)  
 S.t.  
 x1 + x4 = 710  
-x6 + x12 = x1 ??? -x1 + x6 + x12 = 0  
-x3 = x4 + x6 ??? x3 - x4 - x6 = 0  
+x6 + x12 = x1 --> x1 + x6 + x12 = 0  
+x3 = x4 + x6 --> x3 - x4 - x6 = 0  
   
 ![](hw4_q4.2.PNG)
   
