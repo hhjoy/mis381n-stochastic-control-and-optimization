@@ -6,9 +6,9 @@ Homework:
 * [Homework 2](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw2)
 * [Homework 3](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw3)
 * [Homework 4](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw4)
-* Homework 5
-* Homework 6
-* Homework 7
+* [Homework 5](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw5)
+* [Homework 6](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw6)
+* [Homework 7](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw7)
 
 Projects:
 * [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/cash-flow-matching-with-linear-programming)
