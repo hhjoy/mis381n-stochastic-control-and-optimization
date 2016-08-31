@@ -259,7 +259,7 @@ bond_duals = dual_df[13:236,]
 plot(m, bond_duals$sensitivity.duals, main="Bond Duals by Maturity Period")
 ```
 
-![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-12-1.png)
+![](project1_files/figure-html/unnamed-chunk-12-1.png)
 
 The graph above shows the shadow prices for each of the 224 bonds by maturity period. The shadow price represents the increase in the objective value (cost of the portfolio) from a purchase of an additional bond. We see a positive relationship between maturity period and the duals, such that buying additional bonds with later maturity dates has a greater impact on the total portfolio cost than buying bonds with shorter term maturities.
 
@@ -269,6 +269,6 @@ This makes sense, because the further into the future a bond matures, the more c
 plot(c(1:12), liab_duals$sensitivity.duals, main="Liability Duals by Maturity Period")
 ```
 
-![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-13-1.png)
+![](project1_files/figure-html/unnamed-chunk-13-1.png)
 
 Looking at liability duals by maturity shows a negative relationship. The first liability has a shadow price of 0.92, which means that an increase in the first liability by $1 requires a $0.92 increase in the objective value, or cost of the portfolio. Shadow prices fall as maturity dates rise because there is more time to accumulate return to cover the liability.
