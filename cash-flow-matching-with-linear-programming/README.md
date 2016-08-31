@@ -1,77 +1,67 @@
 # Cash Flow Matching with Linear Programming
 
-Dedication or cash-flow matching is a technique used to fund known liabilities in
-the future. The intent is to form a portfolio of assets whose cash inflows will exactly
-match cash outflows of the liabilities. The liabilities will be paid off as they become
-due without the need to sell or buy assets in the future. Dedicated portfolios usually only
-consist of risk-free non-callable bonds since future cash inflows need to be known
-when the portfolio is constructed. In this project, we will be writing and using an 
-R program to construct a dedicated portfolio.
+![](proj1_header1.PNG)
+![](proj1_header2.PNG)
+![](proj1_q1.1.PNG)
+![](proj1_q1.2.PNG)
 
-Given the liability schedule and bonds shown below, we will now formulate the problem as a linear program and solve it using lpSolveAPI.
-
-![](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/blob/master/cash-flow-matching-with-linear-programming/liability_schedule_and_bonds.PNG?raw=true)
-
-#####Formulate the dedicated portfolio construction problem as a linear program  
-**Decision variables:** (x1), ... , (x10) amount of each bond  
-                    (z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the                                         last period)  
+**Decision variables:**
+(x1), ... , (x10) amount of each bond  
+(z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the last period)  
 
 **Minimize:** 102(x1) + 99(x2) + 101(x3) + 98(x4) + 98(x5) + 104(x6) + 100(x7) + 101(x8) + 102(x9) + 94(x10)
  cost of each bond
 
-**Subject To:**  
+**Subject to:**  
  year 1: 12000 = 100(x1) + 5(x1) + 3.5(x2) + 5(x3) + 3.5(x4) + 4(x5) + 9(x6) + 6(x7) + 8(x8) + 9(x9) + 7(x10) - (z1)  
  year 2: ...  
 
-**Variables** = bond terms (10), excess cash (7)  
+**Variables** = bond terms (10), excess cash (7)
+  
 **Constraints** = years (8)  
+  
+![](proj1_q2.PNG)
 
-######Set parameters for example portfolio
 
 ```r
 library(lpSolveAPI)
-
-p = c(102,99,101,98,98,104,100,101,102,94) #price
-c = c(5,3.5,5,3.5,4,9,6,8,9,7) #coupon
-m = c(1,2,2,3,4,5,5,6,7,8) #maturity
-l = c(12000,18000,20000,20000,16000,15000,12000,10000) #liabilities (RHS)
+# setting parameters for example portfolio
+p = c(102,99,101,98,98,104,100,101,102,94) # price
+c = c(5,3.5,5,3.5,4,9,6,8,9,7) # coupon
+m = c(1,2,2,3,4,5,5,6,7,8) # maturity
+l = c(12000,18000,20000,20000,16000,15000,12000,10000) # liabilities (RHS)
 ```
 
-######Code for solving optimization
 
 ```r
-num.constraints = length(l) #set num of constraints to length of liabilities
-num.bonds = length(c) #set num of bonds to length of coupons
+num.constraints = length(l) # set num of constraints to length of liabilities
+num.bonds = length(c) # set num of bonds to length of coupons
 
-my.lp = make.lp(num.constraints, num.bonds+num.constraints-1) #constraints, variables
-check = matrix(0, num.constraints, num.bonds+num.constraints-1) #matrix to check that values are correctly inputted
+my.lp = make.lp(num.constraints, num.bonds+num.constraints-1) # constraints, variables
+check = matrix(0, num.constraints, num.bonds+num.constraints-1) # matrix to check that values are correctly inputted
 
-z.mat = diag(-1, num.constraints, num.constraints-1) #initialize z mat and assign -1 to current year excess cash
-z.mat[col(z.mat) == row(z.mat)-1] = 1 #assign 1 to previous year excess cash
+z.mat = diag(-1, num.constraints, num.constraints-1) # initialize z mat and assign -1 to current year excess cash
+z.mat[col(z.mat) == row(z.mat)-1] = 1 # assign 1 to previous year excess cash
 z = 1
-for(i in (num.bonds+1):(num.bonds+num.constraints-1)) { #loop to add z's to columns
+for(i in (num.bonds+1):(num.bonds+num.constraints-1)) { # loop to add z's to columns
   set.column(my.lp, i, z.mat[,z])
   check[,i] = z.mat[,z]
   z = z + 1
 }
 
-for(bond in (1:num.bonds)){ #loop to add columns for x variables
-  maturity = m[bond] #set maturity to year the bond matures
-  col = rep(0, num.constraints) #assign all variables 0's
-  col[1:maturity] = c[bond] #assign coupons for all eligible years
-  col[maturity] = (100 + c[bond]) #assign 100 + coupon value at maturity
-  set.column(my.lp, bond, col) #set column
+for(bond in (1:num.bonds)){ # loop to add columns for x variables
+  maturity = m[bond] # set maturity to year the bond matures
+  col = rep(0, num.constraints) # assign all variables 0's
+  col[1:maturity] = c[bond] # assign coupons for all eligible years
+  col[maturity] = (100 + c[bond]) # assign 100 + coupon value at maturity
+  set.column(my.lp, bond, col) # set column
   check[, bond] = col
 }
 
 set.objfn(my.lp, c(p, rep(0, num.constraints-1)))
 set.constr.type(my.lp, rep("=", num.constraints))
 set.rhs(my.lp, l)
-```
 
-######Solve
-
-```r
 solve(my.lp)
 ```
 
@@ -79,11 +69,10 @@ solve(my.lp)
 ## [1] 0
 ```
   
-######Get optimal variables
-The matrix below tells us how much of each bond the portfolio should consist of.
+The matrix below tells us how much and of each bond the portfolio should consist of.
 
 ```r
-get.variables(my.lp)
+get.variables(my.lp) # get optimal variables
 ```
 
 ```
@@ -91,35 +80,33 @@ get.variables(my.lp)
 ##  [8] 124.15727 104.08986  93.45794   0.00000   0.00000   0.00000   0.00000
 ## [15]   0.00000   0.00000   0.00000
 ```
+  
 
-    
-Using the optimization code above, we will now write a function that can construct a portfolio for any set of liabilities and bonds.
-
-######Function that takes in bond portfolio parameters and returns a .lp object
+![](proj1_q3.PNG)
 
 ```r
-dedicate_g1 = function (p,c,m,l) {
-  num.constraints = length(l) #set num of constraints to length of liabilities
-  num.bonds = length(c) #set num of bonds to length of coupons
+dedicate_g1 = function (p,c,m,l) { # function that takes in bond portfolio parameters and returns a .lp object
+  num.constraints = length(l) # set num of constraints to length of liabilities
+  num.bonds = length(c) # set num of bonds to length of coupons
   
-  my.lp = make.lp(num.constraints, num.bonds+num.constraints-1) #constraints, variables
-  check = matrix(0, num.constraints, num.bonds+num.constraints-1) #matrix to check that values are correctly inputted
+  my.lp = make.lp(num.constraints, num.bonds+num.constraints-1) # constraints, variables
+  check = matrix(0, num.constraints, num.bonds+num.constraints-1) # matrix to check that values are correctly inputted
   
-  z.mat = diag(-1, num.constraints, num.constraints-1) #initialize z mat and assign -1 to current year excess cash
-  z.mat[col(z.mat) == row(z.mat)-1] = 1 #assign 1 to previous year excess cash
+  z.mat = diag(-1, num.constraints, num.constraints-1) # initialize z mat and assign -1 to current year excess cash
+  z.mat[col(z.mat) == row(z.mat)-1] = 1 # assign 1 to previous year excess cash
   z = 1
-  for(i in (num.bonds+1):(num.bonds+num.constraints-1)) { #loop to add z's to columns
+  for(i in (num.bonds+1):(num.bonds+num.constraints-1)) { # loop to add z's to columns
     set.column(my.lp, i, z.mat[,z])
     check[,i] = z.mat[,z]
     z = z + 1
   }
   
-  for(bond in (1:num.bonds)){ #loop to add columns for x variables
-    maturity = m[bond] #set maturity to year the bond matures
-    col = rep(0, num.constraints) #assign all variables 0's
-    col[1:maturity] = c[bond] #assign coupons for all eligible years
-    col[maturity] = (100 + c[bond]) #assign 100 + coupon value at maturity
-    set.column(my.lp, bond, col) #set column
+  for(bond in (1:num.bonds)){ # loop to add columns for x variables
+    maturity = m[bond] # set maturity to year the bond matures
+    col = rep(0, num.constraints) # assign all variables 0's
+    col[1:maturity] = c[bond] # assign coupons for all eligible years
+    col[maturity] = (100 + c[bond]) # assign 100 + coupon value at maturity
+    set.column(my.lp, bond, col) # set column
     check[, bond] = col
   }
   
@@ -130,9 +117,9 @@ dedicate_g1 = function (p,c,m,l) {
 }
 ```
 
-######Test function on example portfolio
 
 ```r
+# testing function on example portfolio
 old_port = dedicate_g1(p,c,m,l)
 solve(old_port)
 ```
@@ -143,7 +130,7 @@ solve(old_port)
 
 
 ```r
-get.variables(old_port)
+get.variables(old_port) #looks right
 ```
 
 ```
@@ -152,59 +139,30 @@ get.variables(old_port)
 ## [15]   0.00000   0.00000   0.00000
 ```
 
-```r
-#looks right
-```
-
 
 ```r
-get.objective(old_port)
+get.objective(old_port) # looks right
 ```
 
 ```
 ## [1] 93944.5
 ```
-
-```r
-#looks right
-```
-
   
-Next, we will construct a dedicated portfolio using the liability stream below and current bond information from [The Wall Street Journal (WSJ) Online U.S. Treasury Quotes](http://online.wsj.com/mdc/public/page/2_3020-treasury.html). We will have to account for the fact that coupons for these bonds are paid semi-annually.
-
-![](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/blob/master/cash-flow-matching-with-linear-programming/liability_schedule_and_bonds.PNG?raw=true)
-
-######Read in file with current bond information  
+![](proj1_q4.1.PNG)
+![](proj1_q4.2.PNG)  
 
 ```r
 bonds = read.csv('bonds.csv', header=TRUE) # csv containing maturity date, coupon, and ask price provided on the website
-```
 
-######Create a column of date objects
-
-```r
 bonds$Matur_Date = as.Date(as.character(bonds$Maturity),format="%m/%d/%Y")
-```
 
-######Remove all bonds maturing after last liability date
+bonds = bonds[bonds$Matur_Date <= as.Date('12/31/2021',format="%m/%d/%Y"),] # remove all bonds maturing after last liability date
 
-```r
-bonds = bonds[bonds$Matur_Date <= as.Date('12/31/2021',format="%m/%d/%Y"),]
-```
-
-######Create a list of liability dates
-
-```r
 liability_dates = c('6/30/2016','12/31/2016','6/30/2017','12/31/2017','6/30/2018','12/31/2018','6/30/2019',
-                    '12/31/2019','6/30/2020','12/31/2020','6/30/2021','12/31/2021')
+                    '12/31/2019','6/30/2020','12/31/2020','6/30/2021','12/31/2021') # create a list of liability dates
 liability_dates = as.Date(liability_dates,format="%m/%d/%Y")
-```
 
-######Assign maturity periods using the date lists
-Goal is to have list of maturity due periods (numbering 1-12), similar to format given in example portfolio
-
-```r
-m = 0
+m = 0 # assign maturity periods using the date lists; goal is to have list of maturity due periods (numbering 1-12), similar to format given in example portfolio
 for (i in 1:length(bonds$Matur_Date)) {
   for (j in 1:length(liability_dates)) {
     if (bonds$Matur_Date[i] <= liability_dates[j]) {
@@ -213,11 +171,8 @@ for (i in 1:length(bonds$Matur_Date)) {
     }
   }
 }
-```
 
-######Use function to optimize new portfolio
-
-```r
+# use function to optimize new portfolio
 p = bonds$Asked #price
 c = bonds$Coupon #coupon
 l = c(9000000,9000000,10000000,10000000,6000000,6000000,9000000,9000000,10000000,10000000,5000000,3000000) #liabilities (RHS)
@@ -288,13 +243,11 @@ get.objective(new_port)
 ```
 ## [1] 74042228
 ```
-
-
-Finally, we will plot and interpret the sensitivity parameters of the dedicated portfolio.
-
-######Plot bond and liability duals versus libability period (analagous to date)
+  
+Finally, we plot and interpret the sensitivity parameters of the dedicated portfolio.
 
 ```r
+# plotting bond and liability duals versus libability period (analagous to date)
 duals = get.dual.solution(new_port)
 sensitivity = get.sensitivity.rhs(new_port)
 dual_df = data.frame(sensitivity$duals,sensitivity$dualsfrom,sensitivity$dualstill)
@@ -308,7 +261,7 @@ bond_duals = dual_df[13:236,]
 plot(m, bond_duals$sensitivity.duals, main="Bond Duals by Maturity Period")
 ```
 
-![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-18-1.png)
+![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-12-1.png)
 
 The graph above shows the shadow prices for each of the 224 bonds by maturity period. The shadow price represents the increase in the objective value (cost of the portfolio) from a purchase of an additional bond. We see a positive relationship between maturity period and the duals, such that buying additional bonds with later maturity dates has a greater impact on the total portfolio cost than buying bonds with shorter term maturities.
 
@@ -318,6 +271,6 @@ This makes sense, because the further into the future a bond matures, the more c
 plot(c(1:12), liab_duals$sensitivity.duals, main="Liability Duals by Maturity Period")
 ```
 
-![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-19-1.png)
+![](cash-flow-matching-with-linear-programming_files/figure-html/unnamed-chunk-13-1.png)
 
 Looking at liability duals by maturity shows a negative relationship. The first liability has a shadow price of 0.92, which means that an increase in the first liability by $1 requires a $0.92 increase in the objective value, or cost of the portfolio. Shadow prices fall as maturity dates rise because there is more time to accumulate return to cover the liability.
