@@ -22,7 +22,6 @@
   
 ![](proj1_q2.PNG)
 
-
 ```r
 library(lpSolveAPI)
 # setting parameters for example portfolio
@@ -81,7 +80,6 @@ get.variables(my.lp) # get optimal variables
 ## [15]   0.00000   0.00000   0.00000
 ```
   
-
 ![](proj1_q3.PNG)
 
 ```r
@@ -130,7 +128,7 @@ solve(old_port)
 
 
 ```r
-get.variables(old_port) #looks right
+get.variables(old_port) # looks right
 ```
 
 ```
