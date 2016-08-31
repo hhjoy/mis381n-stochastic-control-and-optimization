@@ -5,7 +5,7 @@
 ![](proj1_q1.1.PNG)
 ![](proj1_q1.2.PNG)
 
-**Decision variables:**
+**Decision variables:**  
 (x1), ... , (x10) amount of each bond  
 (z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the last period)  
 
