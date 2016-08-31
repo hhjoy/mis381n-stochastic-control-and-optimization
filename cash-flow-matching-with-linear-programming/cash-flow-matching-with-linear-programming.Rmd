@@ -10,7 +10,7 @@ output:
 ![](proj1_q1.1.PNG)
 ![](proj1_q1.2.PNG)
 
-**Decision variables:**
+**Decision variables:**  
 (x1), ... , (x10) amount of each bond  
 (z1), ... , (z7) excess cash at the end of each year (excluding the excess cash at the last period)  
 
@@ -26,7 +26,6 @@ output:
 **Constraints** = years (8)  
   
 ![](proj1_q2.PNG)
-
 ```{r}
 library(lpSolveAPI)
 # setting parameters for example portfolio
@@ -73,7 +72,6 @@ The matrix below tells us how much and of each bond the portfolio should consist
 get.variables(my.lp) # get optimal variables
 ```
   
-
 ![](proj1_q3.PNG)
 ```{r}
 dedicate_g1 = function (p,c,m,l) { # function that takes in bond portfolio parameters and returns a .lp object
@@ -115,7 +113,7 @@ solve(old_port)
 ```
 
 ```{r}
-get.variables(old_port) #looks right
+get.variables(old_port) # looks right
 ```
 
 ```{r}
