@@ -12,7 +12,7 @@ Homework:
 
 Projects:
 * [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/cash-flow-matching-with-linear-programming)
-* Constructing an Index Fund with Integer Programming
+* Index Tracking with Integer Programming
 * Variable Selection with Nonlinear programming
 * Queuing Optimization through Simulation
 * Dice Game with Dynamic programming
