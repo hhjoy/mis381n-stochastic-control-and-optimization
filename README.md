@@ -13,6 +13,6 @@ Homework:
 Projects:
 * [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project1)
 * [Index Tracking with Integer Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project2)
-* Variable Selection with Nonlinear programming
-* Queuing Optimization through Simulation
+* Variable Selection with Nonlinear programming(https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project3)
+* Queuing Optimization with Simulation
 * Dice Game with Dynamic programming
