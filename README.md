@@ -11,8 +11,8 @@ Homework:
 * [Homework 7](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/hw7)
 
 Projects:
-* [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/cash-flow-matching-with-linear-programming)
-* Index Tracking with Integer Programming
+* [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project1)
+* [Index Tracking with Integer Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project2)
 * Variable Selection with Nonlinear programming
 * Queuing Optimization through Simulation
 * Dice Game with Dynamic programming

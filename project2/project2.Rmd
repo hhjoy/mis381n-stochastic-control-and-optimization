@@ -43,7 +43,7 @@ ticker[ticker == "SXCI"] = "CTRX"
 # HANS changed to MNST in Jan 2012.
 ticker[ticker == "HANS"] = "MNST"
 
-# converting prices to a matrix, arranged by rows of dates and columns of tickers
+# convert prices to a matrix, arranged by rows of dates and columns of tickers
 unique_dates = sort(unique((date)))
 unique_tickers = sort(unique(ticker))
 
@@ -138,7 +138,7 @@ test_solution # looks good
 ```{r}
 weights = constructFund(corrMat, 25, priceMat, sharesMat, unique_tickers, unique_dates)
 
-# prepping monthly data
+# prep monthly data
 mdata = read.csv("N100Monthly.csv", header=TRUE, stringsAsFactors=FALSE)
 
 mdate = apply(as.matrix(mdata$date), MARGIN = 1, FUN = "toString")
