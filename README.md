@@ -14,5 +14,5 @@ Projects:
 * [Cash Flow Matching with Linear Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project1)
 * [Index Tracking with Integer Programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project2)
 * [Variable Selection with Nonlinear programming](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project3)
-* Queuing Optimization with Simulation
+* [Queuing Optimization with Simulation](https://github.com/juliaawu/mis381n-stochastic-control-and-optimization/tree/master/project4)
 * Dice Game with Dynamic programming

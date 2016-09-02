@@ -30,23 +30,27 @@ A_weibull_est = rweibull(n=length(A), shape=A_weibull$estimate[1], scale=A_weibu
 S_gamma_est = rgamma(n=length(S), shape=S_gamma$estimate[1], rate=S_gamma$estimate[2])
 S_exp_est = rexp(n=length(S), rate=S_exp$estimate[1])
 S_weibull_est = rweibull(n=length(S), shape=S_weibull$estimate[1], scale=S_weibull$estimate[2])
+```
 
+The gamma distribution appears to be the best fit of the data. We will use the gamma distribution to estimate inter-arrival times and service times for the following problems.
+
+```r
 qqplot(inter_A, A_gamma_est, xlab='Past Inter-Arrival Time Observations', ylab='Estimated Inter-Arrival Distribution', main='qq plot for Gamma Estimate of Inter-Arrival Time')
 ```
 
-![](project4_files/figure-html/unnamed-chunk-1-1.png)
+![](project4_files/figure-html/unnamed-chunk-2-1.png)
 
 ```r
 qqplot(inter_A, A_exp_est, xlab='Past Inter-Arrival Time Observations', ylab='Estimated Inter-Arrival Distribution', main='qq plot for Exp Estimate of Inter-Arrival Time')
 ```
 
-![](project4_files/figure-html/unnamed-chunk-1-2.png)
+![](project4_files/figure-html/unnamed-chunk-2-2.png)
 
 ```r
 qqplot(inter_A, A_weibull_est, xlab='Past Inter-Arrival Time Observations', ylab='Estimated Inter-Arrival Distribution', main='qq plot for Weibull Estimate of Inter-Arrival Time')
 ```
 
-![](project4_files/figure-html/unnamed-chunk-1-3.png)
+![](project4_files/figure-html/unnamed-chunk-2-3.png)
   
 ![](proj4_q2.PNG)
   
@@ -120,7 +124,7 @@ plot(1:20, final_cost, type='line', xlab='# of Counters Open', ylab='Estimated C
 ## first character
 ```
 
-![](project4_files/figure-html/unnamed-chunk-2-1.png)
+![](project4_files/figure-html/unnamed-chunk-3-1.png)
 
 ```r
 min(final_cost)
@@ -188,7 +192,7 @@ plot(1:20, cost_all, type='line', xlab='# of Counters Open', ylab='Estimated Cos
 ## first character
 ```
 
-![](project4_files/figure-html/unnamed-chunk-3-1.png)
+![](project4_files/figure-html/unnamed-chunk-4-1.png)
 
 ```r
 min(cost_all)
@@ -208,7 +212,7 @@ which.min(cost_all)
   
 ![](proj4_q4.PNG)
   
-The optimal number of counter for a multiple queuing system with shortest queue selection is 13, lower than it was with random selection. The cost is show below under min(cost_all) This makes sense because it is more efficient for customers to choose the shortest queue.
+The optimal number of counters for a multiple queuing system with shortest queue selection is 13, lower than it was with random selection. The cost is shown below under min(cost_all) This makes sense because it is more efficient for customers to choose the shortest queue.
 
 ```r
 n = 5000
@@ -241,7 +245,6 @@ for (counter in 1:20)
       
     }
     cost_all[counter] = sum(W > 10) + (max(D)/60 * 40 * counter)
-    
 }
 
 cost_all
@@ -262,7 +265,7 @@ plot(1:20, cost_all, type='line', xlab='# of Counters Open', ylab='Estimated Cos
 ## first character
 ```
 
-![](project4_files/figure-html/unnamed-chunk-4-1.png)
+![](project4_files/figure-html/unnamed-chunk-5-1.png)
 
 ```r
 min(cost_all)
