@@ -7,7 +7,7 @@
   
 ![](proj5_q2.PNG)
   
-![](proj5_a2.PNG)
+![](proj5_a2.png)
   
 ![](proj5_q3.PNG)
   
